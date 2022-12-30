@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
+// import { Route } from 'react-router-dom';
+import MainPage from './pages/MainPage/MainPage';
+import DailyPage from './pages/DailyPage/DailyPage';
+import HourlyPage from './pages/HourlyPage/HourlyPage';
+import News from './components/News/News';
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends Component {
+  render() {
+    return (  
+      <div className="app">
+      <Router>
+        <Switch>
+          <Route path='/' component={MainPage} exact />
+          <Route path='/daily' component={DailyPage} exact />
+          <Route path='/hourly' component={HourlyPage} exact />
+          <Route path='/news' component={News} exact />  
+        </Switch>
+      </Router>
     </div>
-  );
+    );
+  }
 }
 
 export default App;
